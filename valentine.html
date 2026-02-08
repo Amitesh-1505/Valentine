@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Special Message For You</title>
+
+<style>
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #ffe3e3;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+    /* ✅ allow page scrolling if needed */
+    overflow-y: auto;
+}
+
+.container {
+    text-align: center;
+    max-width: 650px;
+    padding: 20px;
+    position: relative;
+    z-index: 2;
+}
+
+h1 {
+    color: #d63384;
+    font-size: 2.6rem;
+}
+
+h2 {
+    color: #d63384;
+}
+
+/* CONFESSION BOX */
+.confession-box {
+    background: white;
+    padding: 30px;
+    border-radius: 25px;
+    box-shadow: 0 15px 35px rgba(214, 51, 132, 0.2);
+    line-height: 1.8;
+    font-size: 1.1rem;
+    color: #444;
+    border-left: 6px solid #ff4d6d;
+    margin-bottom: 25px;
+    text-align: left;
+
+    /* ✅ THIS IS THE KEY PART */
+    max-height: 45vh;          /* limits height based on screen */
+    overflow-y: auto;          /* enables scrollbar */
+}
+
+/* prettier scrollbar (optional but cute) */
+.confession-box::-webkit-scrollbar {
+    width: 8px;
+}
+.confession-box::-webkit-scrollbar-thumb {
+    background: #ff4d6d;
+    border-radius: 10px;
+}
+
+/* Typing cursor */
+.cursor {
+    display: inline-block;
+    width: 2px;
+    background: #ff4d6d;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+/* BUTTONS */
+.buttons {
+    position: relative;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    margin-bottom: 10px;
+}
+
+button {
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+#yesBtn {
+    background: #ff4d6d;
+    color: white;
+    z-index: 5;
+}
+
+#yesBtn:hover {
+    transform: scale(1.1);
+    background: #ff0e39;
+}
+
+#noBtn {
+    background: #adb5bd;
+    color: white;
+    position: absolute;
+    left: 260px;
+    top: 35px;
+}
+
+/* Shake animation */
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-4px); }
+    50% { transform: translateX(4px); }
+    75% { transform: translateX(-4px); }
+    100% { transform: translateX(0); }
+}
+
+/* SUCCESS */
+.hidden { display: none; }
+
+.celebration-text {
+    font-size: 2.3rem;
+    color: #ff4d6d;
+}
+
+.image-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin-top: 25px;
+    flex-wrap: wrap;
+}
+
+.image-row img {
+    width: 200px;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.tenor-gif-embed {
+    width: 200px !important;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+/* FLOATING HEARTS */
+.heart {
+    position: absolute;
+    color: #ff4d6d;
+    animation: floatUp 6s linear infinite;
+    opacity: 0.7;
+}
+
+@keyframes floatUp {
+    from {
+        transform: translateY(0);
+        opacity: 0.8;
+    }
+    to {
+        transform: translateY(-800px);
+        opacity: 0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div id="hearts"></div>
+
+<div class="container">
+
+    <div id="content">
+        <h1>Dear Kalyani,</h1>
+
+        <div class="confession-box">
+            <span id="typedText"></span><span class="cursor"></span>
+        </div>
+
+        <h2>Will you be my Valentine? 💌</h2>
+
+        <div class="buttons">
+            <button id="yesBtn">Yes!</button>
+            <button id="noBtn">No 😭</button>
+        </div>
+    </div>
+
+    <div id="successMessage" class="hidden">
+        <h1 class="celebration-text">YAY Omggg omggg!! You made my day hehe❤️</h1>
+        <p>Officially Valentines now 🥰 (Well, also you had no other option, ab woh Insta pe chat pe pata chalega how was all this damnnn)</p>
+
+        <div class="image-row">
+            <div class="tenor-gif-embed"
+                 data-postid="24985324"
+                 data-share-method="host"
+                 data-aspect-ratio="1.18519"
+                 data-width="200px">
+            </div>
+
+            <img src="https://i.postimg.cc/pVwJ8ZN4/us.png">
+        </div>
+
+        <p style="margin-top:20px;font-size:1.2rem;">
+            Please isko weird mat samajna loll, I'm not crazy, I'm sane damn
+It's just what I wanted to tell you snorly, and yeah I 💕 you to moon and back!💕💕💕💕
+        </p>
+    </div>
+
+</div>
+
+<script>
+const text = `Hey Kiki,
+
+I know the timing isn’t perfect....but honestly, it never is.
+Still, try karne mein kya jaata hai, right? 😭
+As John Cena once said, "Never Give Up."
+
+I'll stand by you, through life's every test, 
+Through trials and tears, I'll be your best. 
+I'll hold your hand, through joy and strife, Together we'll walk, until heavenly life. 
+I won't leave you, till heaven's gate, Where love and peace, forever await. 
+I'll be with you, every step of the way, Till we reach home, in a brighter day. Through earthly storms, I'll be your shield, Your safe haven, your love to yield. And when we reach, the other side, We'll dance among stars, with love inside. 
+Till heaven's embrace, enfold us tight, I'll be with you, through the dark of night. 
+Forever yours, forever true, My love for you, will see us through.
+
+You remember this hehe? 
+
+I've still kept everythingg that we ever shared with each other, even humari whatsapp chats hehe, remember you once had to delete everything ig hostel mai jab thi tum, so yeah that time I had downloaded the transcript of our chats, though usme stickers and emojis nhi hai, but yeah the essence still remains.... and yeah this poem thing you wrote when we both were in our initial months
+This will always, always be my most adored poem!
+
+I dont know kaisa sound kar rha hoga ye sab jo bhi likha hu, I hope not cringe sound kar rha ho, though ig kar rha hoga lol, and idk whether you're interested in reading all this rn, though ig woh poem wala part cringe sound kar rha hoga thoda tumko, but all that means a lot to me, well everything related to you is treasure for me atp, and you yourself are one! So I thought jo bhi abhi dimaag mai aa rha likh du, well sab kuch toh nhi likh sakta hu, cause if I do, then pakka you'll fall asleep while reding all this over here, Kumbhkaran kahiki loll
+I don't know much about love, but I want to just stay with this one woman for a lifetime, this girl, who wears a chashma, and is undoubtedly this universe's most prettiest person! 
+You know LDR is actually so amazing, compared to offline ones, the way you and I built our connection, ig woh offline mai maybe itna ban pata, though now this year I'll pakka come to you, chahe tum jaha pe bhi ho, I'll definitely come hehe
+And the biggest thing that LDR teaches you is to trust your partner uk, just pure trust, nothing else, to have faith in your partner, idts offline mai aaj kal itna banta hoga, also LDR teaches us patience and commitment towards each other...
+Now I also know tum maybe ye bologi ki you're not the one for all this, and mereko aage bhad jaana chahiye and all, okay, I agree partially over here, I'll move forward, but with you...
+
+I'll hold your hand forever
+Just whatever fears are there,don't you worry, I'll be the one who stands in front of it....I'll be just like your clark kent, but whenever you'll be feeling down or in trouble, ikdam se I'll transition into Superman for ya, well tbh I'll be transitioning into such a physique sooon lol, but anyways I mean it Kalyani!
+And I mean it Kiki, just ek chance vaapis do, you'll never ever be sad or unhappy with anything in life, I'll always always keep you happy....Just come back
+And it's not like I'm saying you're not happy currently, ofc you might be, idk kaise explain karu ye, but yeah I'll try everything I can to make you even 10 times happier than what you are currently, maybe 20 times hehe.
+
+`;
+
+let index = 0;
+const typedText = document.getElementById("typedText");
+
+function type() {
+    if (index < text.length) {
+        typedText.innerHTML += text.charAt(index) === "\n" ? "<br>" : text.charAt(index);
+        index++;
+        setTimeout(type, 30);
+    }
+}
+type();
+
+const noBtn = document.getElementById("noBtn");
+const yesBtn = document.getElementById("yesBtn");
+const buttonsBox = document.querySelector(".buttons");
+
+let scale = 1;
+
+noBtn.addEventListener("mouseenter", () => {
+    const box = buttonsBox.getBoundingClientRect();
+    const btn = noBtn.getBoundingClientRect();
+
+    const x = Math.random() * (box.width - btn.width);
+    const y = Math.random() * (box.height - btn.height);
+
+    noBtn.style.left = `${x}px`;
+    noBtn.style.top = `${y}px`;
+
+    scale = Math.max(scale - 0.1, 0.4);
+    noBtn.style.transform = `scale(${scale})`;
+});
+
+yesBtn.addEventListener("click", () => {
+    document.getElementById("content").classList.add("hidden");
+    document.getElementById("successMessage").classList.remove("hidden");
+    document.body.style.background = "#ffc1cc";
+});
+
+const hearts = document.getElementById("hearts");
+setInterval(() => {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerText = "❤️";
+    heart.style.left = Math.random() * window.innerWidth + "px";
+    heart.style.bottom = "0px";
+    heart.style.fontSize = Math.random() * 20 + 15 + "px";
+    hearts.appendChild(heart);
+    setTimeout(() => heart.remove(), 6000);
+}, 300);
+</script>
+
+<script async src="https://tenor.com/embed.js"></script>
+</body>
+</html>
